@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="15dp" >
+
+    <EditText
+        android:id="@+id/new_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:ems="7"
+        android:hint="Assignment" >
+
+        <requestFocus />
+    </EditText>
+
+    <EditText
+        android:id="@+id/new_notes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/new_name"
+        android:ems="10"
+        android:hint="Notes"
+        android:inputType="textMultiLine"
+        android:minLines="2" />
+
+    <Button
+        android:id="@+id/new_due"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/new_notes"
+        android:text="Due" />
+
+    <Button
+        android:id="@+id/new_add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/new_notes"
+        android:text="Add" />
+
+    <Spinner
+        android:id="@+id/new_spinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/new_due"
+        android:layout_alignTop="@+id/new_due"
+        android:layout_toLeftOf="@+id/new_add"
+        android:layout_toRightOf="@+id/new_due"
+        android:gravity="top" />
+
+</RelativeLayout>
