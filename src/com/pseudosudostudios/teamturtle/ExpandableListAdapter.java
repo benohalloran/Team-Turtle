@@ -13,21 +13,21 @@ import android.widget.TextView;
 
 public class ExpandableListAdapter extends BaseExpandableListAdapter {
 
-	private Context _context;
-	private List<String> _listDataHeader; // header titles
+	private Context context;
+	private List<String> headers; // header titles
 	// child data in format of header title, child title
-	private HashMap<String, Task> _listDataChild;
+	private HashMap<String, Task> children;
 
-	public ExpandableListAdapter(Context context, List<String> listDataHeader,
+	public ExpandableListAdapter(Context c, List<String> listDataHeader,
 			HashMap<String, Task> listDataChild) {
-		this._context = context;
-		this._listDataHeader = listDataHeader;
-		this._listDataChild = listDataChild;
+		this.context = c;
+		this.headers = listDataHeader;
+		this.children = listDataChild;
 	}
 
 	@Override
 	public Task getChild(int groupPosition, int childPosititon) {
-		return this._listDataChild.get(this._listDataHeader.get(groupPosition));
+		return this.children.get(this.headers.get(groupPosition));
 	}
 
 	@Override
@@ -42,7 +42,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 		final Task task = getChild(groupPosition, childPosition);
 
 		if (convertView == null) {
-			LayoutInflater infalInflater = (LayoutInflater) this._context
+			LayoutInflater infalInflater = (LayoutInflater) this.context
 					.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 			convertView = infalInflater.inflate(R.layout.assignment_details,
 					null);
@@ -71,12 +71,12 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 
 	@Override
 	public Object getGroup(int groupPosition) {
-		return this._listDataHeader.get(groupPosition);
+		return this.headers.get(groupPosition);
 	}
 
 	@Override
 	public int getGroupCount() {
-		return this._listDataHeader.size();
+		return this.headers.size();
 	}
 
 	@Override
@@ -89,7 +89,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 			View convertView, ViewGroup parent) {
 		String headerTitle = (String) getGroup(groupPosition);
 		if (convertView == null) {
-			LayoutInflater infalInflater = (LayoutInflater) this._context
+			LayoutInflater infalInflater = (LayoutInflater) this.context
 					.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 			convertView = infalInflater.inflate(R.layout.header_view, null);
 		}

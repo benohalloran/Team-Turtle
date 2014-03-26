@@ -11,7 +11,7 @@ public class TimeChunk extends ActionBarActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_time_chunck);
+		setContentView(R.layout.activity_time_chunk);
 		LinearLayout tasks = (LinearLayout) findViewById(R.id.chunk_linear);
 		for (int i = 0; i < 20; i++) {
 			CheckBox box = new CheckBox(this);

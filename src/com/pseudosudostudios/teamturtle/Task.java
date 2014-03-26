@@ -1,6 +1,5 @@
 package com.pseudosudostudios.teamturtle;
 
-
 public class Task {
 	String name, notes, course, due;
 
