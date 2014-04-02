@@ -63,14 +63,14 @@ public class IOFrag extends Fragment implements View.OnClickListener {
 	}
 
 	private void addData() {
-		// TODO Auto-generated method stub
-		Task t = new Task();
-		t.name = name.getText().toString();
-		if (t.name.isEmpty()) {
+		String strname = name.getText().toString();
+		if (strname.isEmpty()) {
 			Toast.makeText(getActivity(), R.string.toast_empty_name,
 					Toast.LENGTH_SHORT).show();
 			return;
 		}
+		Task t = new Task();
+		t.name = strname;
 		t.notes = notes.getText().toString();
 		t.due = due.getText().toString();
 		if (t.due == getString(R.string.due))
