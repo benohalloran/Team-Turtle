@@ -12,7 +12,7 @@ public class ButtonAdapter extends BaseAdapter {
 	private OnClickListener listener;
 	Button[] buttons;
 
-	public ButtonAdapter(InputFrag in) {
+	public ButtonAdapter(TimeInputFrag in) {
 		context = in.getActivity();
 		listener = in;
 		buttons = new Button[16];

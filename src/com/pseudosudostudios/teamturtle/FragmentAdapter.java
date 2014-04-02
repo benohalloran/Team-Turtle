@@ -7,6 +7,8 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
 public class FragmentAdapter extends FragmentPagerAdapter {
+	public static final int TIME_FRAG = 0;
+	public static final int IO_FRAG = 1;
 	private List<Fragment> list;
 
 	public FragmentAdapter(FragmentManager fm, List<Fragment> frags) {
@@ -20,7 +22,7 @@ public class FragmentAdapter extends FragmentPagerAdapter {
 	}
 
 	@Override
-	public Fragment getItem(int arg0) {
-		return list.get(arg0);
+	public Fragment getItem(int i) {
+		return list.get(i);
 	}
 }

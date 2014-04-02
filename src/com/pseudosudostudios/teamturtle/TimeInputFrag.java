@@ -13,7 +13,7 @@ import android.widget.Button;
 import android.widget.GridView;
 import android.widget.TextView;
 
-public class InputFrag extends Fragment implements OnClickListener {
+public class TimeInputFrag extends Fragment implements OnClickListener {
 	TextView out;
 	LinkedList<String> outStrings;
 

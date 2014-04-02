@@ -1,6 +1,5 @@
 package com.pseudosudostudios.teamturtle;
 
-import java.util.HashMap;
 import java.util.List;
 
 import android.content.Context;
@@ -14,20 +13,24 @@ import android.widget.TextView;
 public class ExpandableListAdapter extends BaseExpandableListAdapter {
 
 	private Context context;
-	private List<String> headers; // header titles
-	// child data in format of header title, child title
-	private HashMap<String, Task> children;
+	private List<Task> tasks; // header titles
 
-	public ExpandableListAdapter(Context c, List<String> listDataHeader,
-			HashMap<String, Task> listDataChild) {
+	// child data in format of header title, child title
+
+	public ExpandableListAdapter(Context c, List<Task> tasks) {
 		this.context = c;
-		this.headers = listDataHeader;
-		this.children = listDataChild;
+		this.tasks = tasks;
+	}
+
+	public void addTask(Task task) {
+		// TODO Auto-generated method stub
+		tasks.add(task);
+		notifyDataSetChanged();
 	}
 
 	@Override
 	public Task getChild(int groupPosition, int childPosititon) {
-		return this.children.get(this.headers.get(groupPosition));
+		return tasks.get(groupPosition);
 	}
 
 	@Override
@@ -40,7 +43,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 			boolean isLastChild, View convertView, ViewGroup parent) {
 
 		final Task task = getChild(groupPosition, childPosition);
-
+		System.out.println(task == null);
 		if (convertView == null) {
 			LayoutInflater infalInflater = (LayoutInflater) this.context
 					.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -52,11 +55,16 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 		name = (TextView) convertView.findViewById(R.id.assig_details_name);
 		name.setText(task.name);
 
-		notes = (TextView) convertView.findViewById(R.id.assig_details_notes);
-		notes.setText(task.notes);
+		if (task.notes != null) {
+			notes = (TextView) convertView
+					.findViewById(R.id.assig_details_notes);
+			notes.setText(task.notes);
+		}
 
-		due = (TextView) convertView.findViewById(R.id.assig_details_due);
-		due.setText(task.due);
+		if (task.due != null) {
+			due = (TextView) convertView.findViewById(R.id.assig_details_due);
+			due.setText(task.due);
+		}
 
 		course = (TextView) convertView.findViewById(R.id.assig_details_course);
 		course.setText(task.course);
@@ -71,12 +79,12 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 
 	@Override
 	public Object getGroup(int groupPosition) {
-		return this.headers.get(groupPosition);
+		return this.tasks.get(groupPosition).name;
 	}
 
 	@Override
 	public int getGroupCount() {
-		return this.headers.size();
+		return this.tasks.size();
 	}
 
 	@Override

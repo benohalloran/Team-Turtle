@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
 
     <string name="app_name">Team Turtle</string>
     <string name="hello_world">Hello world!</string>
@@ -7,5 +7,33 @@
     <string name="title_activity_main_screen">MainScreen</string>
     <string name="title_activity_io__screen">IO_Screen</string>
     <string name="title_activity_time_chunk">TimeChunck</string>
+    <string name="title_activity_bracelet_read">Today\'s Stress</string>
+    <string name="graph_desc">Today\'s Stress</string>
+
+    <string-array name="tips">
+        <item>Remember to take brakes and not to work for too long in one stretch. Get up and take a little walk every hour or so.</item>
+    </string-array>
+
+    <string name="toast_empty_name">You need to have a name for the assignment!</string>
+
+    <string-array name="courses">
+        <item>CSC 211</item>
+        <item>CSC 252</item>
+        <item>MTH 162</item>
+        <item>WRT 105</item>
+    </string-array>
+
+    <string name="assignment">Assignment</string>
+    <string name="add">Add</string>
+    <string name="due">Due</string>
+    <string name="notes">Notes</string>
+
+    <!-- This is to have more items in the 'time chunk' screen -->
+    <string-array name="default_tasks_name">
+        <item>Read Ch 5</item>
+        <item>Finish project</item>
+        <item>Webwork 8</item>
+        <item>Read articles</item>
+    </string-array>
 
 </resources>

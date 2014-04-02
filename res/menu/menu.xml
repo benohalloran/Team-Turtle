@@ -1,0 +1,19 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.pseudosudostudios.teamturtle.MainScreen" >
+     <item
+        android:id="@+id/menu_add"
+        android:orderInCategory="102"
+        android:title="Add Task"
+        android:icon="@android:drawable/ic_input_add"
+        app:showAsAction="ifRoom"/>
+     <item
+        android:id="@+id/menu_stress"
+        android:orderInCategory="103"
+        android:title="Stress Overview"
+        android:icon="@drawable/ic_launcher"
+        app:showAsAction="ifRoom"/>
+     
+
+</menu>

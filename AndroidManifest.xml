@@ -24,11 +24,18 @@
         </activity>
         <activity
             android:name="com.pseudosudostudios.teamturtle.MainScreen"
-            android:label="@string/title_activity_main_screen" >
+            android:label="@string/title_activity_main_screen"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name="com.pseudosudostudios.teamturtle.TimeChunk"
-            android:label="@string/title_activity_time_chunk" >
+            android:label="@string/title_activity_time_chunk"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.pseudosudostudios.teamturtle.BraceletReadActivity"
+            android:label="@string/title_activity_bracelet_read"
+            android:screenOrientation="portrait" >
         </activity>
     </application>
 
