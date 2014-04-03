@@ -15,7 +15,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="44dp"
-        android:src="@drawable/ic_launcher" />
+        android:src="@drawable/clock" />
 
     <EditText
         android:id="@+id/log_in_password"

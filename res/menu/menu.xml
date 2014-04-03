@@ -12,7 +12,7 @@
         android:id="@+id/menu_stress"
         android:orderInCategory="103"
         android:title="Stress Overview"
-        android:icon="@drawable/ic_launcher"
+        android:icon="@drawable/bracelet"
         app:showAsAction="ifRoom"/>
      
 
