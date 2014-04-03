@@ -7,7 +7,6 @@ import android.support.v7.app.ActionBarActivity;
 import android.widget.TextView;
 
 public class BraceletReadActivity extends ActionBarActivity {
-	// TODO stress prevention tips
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
