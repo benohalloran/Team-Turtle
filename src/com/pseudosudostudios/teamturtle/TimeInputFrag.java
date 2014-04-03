@@ -34,17 +34,30 @@ public class TimeInputFrag extends Fragment implements OnClickListener {
 	public void onClick(View v) {
 		if (v instanceof Button) {
 			Button b = (Button) v;
-			if (v.getId() == -2) {
+			if (v.getId() == ButtonAdapter.DELETE) {
 				if (outStrings.size() > 0)
 					outStrings.remove(outStrings.size() - 1);
 			} else if (b.getText().toString().equals("Go")) {
 				startActivity(new Intent(getActivity(), TimeChunk.class));
-			} else
-				outStrings.add(b.getText().toString());
+			} else {
+				String s;
+				if (!outStrings.contains((s = b.getText().toString()))
+						|| isInt(s))
+					outStrings.add(s);
+			}
 			StringBuffer buff = new StringBuffer();
 			for (String s : outStrings)
-				buff.append(s + " ");
+				buff.append((isInt(s) ? "" : " ") + s + (isInt(s) ? "" : " "));
 			out.setText(buff);
+		}
+	}
+
+	private boolean isInt(String s) {
+		try {
+			Integer.parseInt(s);
+			return true;
+		} catch (NumberFormatException e) {
+			return false;
 		}
 	}
 }

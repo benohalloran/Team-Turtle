@@ -15,6 +15,7 @@
     </string-array>
 
     <string name="toast_empty_name">You need to have a name for the assignment!</string>
+    <string name="notification_text">You have been working hard. Go take a brake!</string>
 
     <string-array name="courses">
         <item>CSC 211</item>

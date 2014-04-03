@@ -36,7 +36,6 @@ public class MainScreen extends ActionBarActivity {
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.menu, menu);
 		if (getVisibleFrag() == IOFrag) {
 			menu.removeItem(R.id.menu_add);

@@ -8,6 +8,7 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 
 public class ButtonAdapter extends BaseAdapter {
+	public static final int DELETE = -2;
 	private Context context;
 	private OnClickListener listener;
 	Button[] buttons;
@@ -25,12 +26,12 @@ public class ButtonAdapter extends BaseAdapter {
 
 	@Override
 	public Object getItem(int position) {
-		return null;
+		return buttons[position];
 	}
 
 	@Override
 	public long getItemId(int position) {
-		return position;
+		return buttons[position].getId();
 	}
 
 	@Override
@@ -55,7 +56,7 @@ public class ButtonAdapter extends BaseAdapter {
 				b.setText("Min");
 				break;
 			case 11:
-				b.setText("|<");
+				b.setText("Del");
 				break;
 			case 12:
 				b.setText("/");
@@ -76,7 +77,7 @@ public class ButtonAdapter extends BaseAdapter {
 				b.setId(Integer.parseInt(b.getText().toString()));
 			} catch (NumberFormatException e) {
 				if (position == 11)
-					b.setId(-2);
+					b.setId(DELETE);
 				else
 					b.setId(-1);
 			}

@@ -6,7 +6,7 @@
         android:id="@+id/menu_add"
         android:orderInCategory="102"
         android:title="Add Task"
-        android:icon="@android:drawable/ic_input_add"
+        android:icon="@drawable/plus"
         app:showAsAction="ifRoom"/>
      <item
         android:id="@+id/menu_stress"
