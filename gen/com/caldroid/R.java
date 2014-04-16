@@ -41,8 +41,8 @@ public final class R {
 	}
 	public static final class layout {
 		public static final int calendar_view = 0x7f03001d;
-		public static final int date_cell = 0x7f03001f;
-		public static final int date_grid_fragment = 0x7f030020;
+		public static final int date_cell = 0x7f03001e;
+		public static final int date_grid_fragment = 0x7f03001f;
 	}
 	public static final class string {
 		public static final int app_name = 0x7f060000;

@@ -2,11 +2,8 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
 
     <string name="app_name">Team Turtle</string>
-    <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
-    <string name="title_activity_main_screen">MainScreen</string>
-    <string name="title_activity_io__screen">IO_Screen</string>
-    <string name="title_activity_time_chunk">TimeChunck</string>
+    <string name="title_activity_main_screen">Team Turtle</string>
+    <string name="title_activity_time_chunk">What to do?</string>
     <string name="title_activity_bracelet_read">Today\'s Stress</string>
     <string name="graph_desc">Today\'s Stress</string>
 
@@ -16,6 +13,9 @@
 
     <string name="toast_empty_name">You need to have a name for the assignment!</string>
     <string name="notification_text">You have been working hard. Go take a brake!</string>
+    
+    <string name="menu_stress_str">Stress overview</string>
+     <string name="menu_add_str">Add Task</string>
 
     <string-array name="courses">
         <item>CSC 211</item>

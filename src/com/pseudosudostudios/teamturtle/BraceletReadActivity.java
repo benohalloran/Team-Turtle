@@ -16,7 +16,7 @@ public class BraceletReadActivity extends ActionBarActivity {
 	}
 
 	private String getRandomStressTip() {
-		String[] allTips = getResources().getStringArray(R.array.tips);
+		String[] allTips = getResources().getStringArray(R.array.tips); //TODO add more tips, currently only have one.
 		Random rand = new Random();
 		return allTips[rand.nextInt(allTips.length)];
 	}

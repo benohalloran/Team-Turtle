@@ -1175,15 +1175,14 @@ containing a value of this type.
         public static final int assignment_details=0x7f03001b;
         public static final int assignments=0x7f03001c;
         public static final int calendar_view=0x7f03001d;
-        public static final int calendar_wrapper=0x7f03001e;
-        public static final int date_cell=0x7f03001f;
-        public static final int date_grid_fragment=0x7f030020;
-        public static final int frag_io=0x7f030021;
-        public static final int fragment_bracelet_read=0x7f030022;
-        public static final int header_view=0x7f030023;
-        public static final int input_layout=0x7f030024;
-        public static final int new_assigment=0x7f030025;
-        public static final int support_simple_spinner_dropdown_item=0x7f030026;
+        public static final int date_cell=0x7f03001e;
+        public static final int date_grid_fragment=0x7f03001f;
+        public static final int frag_io=0x7f030020;
+        public static final int fragment_bracelet_read=0x7f030021;
+        public static final int header_view=0x7f030022;
+        public static final int input_layout=0x7f030023;
+        public static final int new_assigment=0x7f030024;
+        public static final int support_simple_spinner_dropdown_item=0x7f030025;
     }
     public static final class menu {
         public static final int menu=0x7f0d0000;
@@ -1229,20 +1228,19 @@ containing a value of this type.
         /**  Description of a share target (both in the list of such or the default share button) in a ShareActionProvider (share UI). [CHAR LIMIT=NONE] 
          */
         public static final int abc_shareactionprovider_share_with_application=0x7f06000c;
-        public static final int action_settings=0x7f06000f;
-        public static final int add=0x7f060018;
+        public static final int add=0x7f060017;
         public static final int app_name=0x7f060000;
-        public static final int assignment=0x7f060017;
-        public static final int due=0x7f060019;
-        public static final int graph_desc=0x7f060014;
-        public static final int hello_world=0x7f06000e;
-        public static final int notes=0x7f06001a;
-        public static final int notification_text=0x7f060016;
-        public static final int title_activity_bracelet_read=0x7f060013;
-        public static final int title_activity_io__screen=0x7f060011;
-        public static final int title_activity_main_screen=0x7f060010;
-        public static final int title_activity_time_chunk=0x7f060012;
-        public static final int toast_empty_name=0x7f060015;
+        public static final int assignment=0x7f060016;
+        public static final int due=0x7f060018;
+        public static final int graph_desc=0x7f060011;
+        public static final int menu_add_str=0x7f060015;
+        public static final int menu_stress_str=0x7f060014;
+        public static final int notes=0x7f060019;
+        public static final int notification_text=0x7f060013;
+        public static final int title_activity_bracelet_read=0x7f060010;
+        public static final int title_activity_main_screen=0x7f06000e;
+        public static final int title_activity_time_chunk=0x7f06000f;
+        public static final int toast_empty_name=0x7f060012;
     }
     public static final class style {
         /** 
