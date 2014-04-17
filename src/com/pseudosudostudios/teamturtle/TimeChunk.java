@@ -4,6 +4,7 @@ import java.util.LinkedList;
 
 import android.app.NotificationManager;
 import android.content.Context;
+import android.graphics.Paint;
 import android.os.Bundle;
 import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.ActionBarActivity;
@@ -14,7 +15,7 @@ import android.widget.LinearLayout;
 
 public class TimeChunk extends ActionBarActivity implements
 		OnCheckedChangeListener {
-	private static final int NOTIFICATION_ID = 65498425;
+	private static final int NOTIFICATION_ID = 65498425; //random constant int
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +37,8 @@ public class TimeChunk extends ActionBarActivity implements
 		LinkedList<Task> list = (LinkedList<Task>) Task.masterTaskList.clone();
 		String[] defaultTasksList = getResources().getStringArray(
 				R.array.default_tasks_name);
-		String[] courses = getResources().getStringArray(R.array.courses);
+		String[] courses = getResources().getStringArray(
+				R.array.default_courses);
 		for (int i = 0; list.size() < courses.length; i++) {
 			list.add(new Task(defaultTasksList[i], null, courses[i], null));
 		}
@@ -56,11 +58,15 @@ public class TimeChunk extends ActionBarActivity implements
 				builder.setStyle(new NotificationCompat.BigTextStyle()
 						.bigText(getString(R.string.notification_text)));
 			} catch (Exception e) {
-				// Android version issues
+				// Android version issues, ignore since 
 			}
 			NotificationManager manager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
 			manager.notify(NOTIFICATION_ID, builder.build());
-		}
+			buttonView.setPaintFlags(buttonView.getPaintFlags()
+					| Paint.STRIKE_THRU_TEXT_FLAG);
+		} else
+			buttonView.setPaintFlags(buttonView.getPaintFlags()
+					& ~Paint.STRIKE_THRU_TEXT_FLAG);
 	}
 
 }

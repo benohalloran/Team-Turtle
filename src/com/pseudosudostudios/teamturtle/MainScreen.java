@@ -14,12 +14,10 @@ import android.view.MenuItem;
 public class MainScreen extends ActionBarActivity {
 	public static final int TimeFrag = 0;
 	public static final int IOFrag = 1;
-
 	private FragmentAdapter adapt;
 	private List<Fragment> frags;
 	private ViewPager pager;
 
-	// TODO remove the plus when the add fragment is visible
 
 	// hide keyboard when how much time screen pops up
 	@Override

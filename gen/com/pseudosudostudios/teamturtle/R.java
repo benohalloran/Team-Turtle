@@ -17,7 +17,10 @@ public final class R {
         public static final int abc_slide_out_top=0x7f040005;
     }
     public static final class array {
-        public static final int courses=0x7f0c0001;
+        public static final int default_courses=0x7f0c0001;
+        /**  This is to have more items in the 'time chunk' screen 
+         */
+        public static final int default_descriptions=0x7f0c0003;
         /**  This is to have more items in the 'time chunk' screen 
          */
         public static final int default_tasks_name=0x7f0c0002;
@@ -1230,6 +1233,7 @@ containing a value of this type.
         public static final int abc_shareactionprovider_share_with_application=0x7f06000c;
         public static final int add=0x7f060017;
         public static final int app_name=0x7f060000;
+        public static final int app_tagline=0x7f06000e;
         public static final int assignment=0x7f060016;
         public static final int due=0x7f060018;
         public static final int graph_desc=0x7f060011;
@@ -1238,7 +1242,6 @@ containing a value of this type.
         public static final int notes=0x7f060019;
         public static final int notification_text=0x7f060013;
         public static final int title_activity_bracelet_read=0x7f060010;
-        public static final int title_activity_main_screen=0x7f06000e;
         public static final int title_activity_time_chunk=0x7f06000f;
         public static final int toast_empty_name=0x7f060012;
     }

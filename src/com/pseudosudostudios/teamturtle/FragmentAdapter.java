@@ -25,4 +25,5 @@ public class FragmentAdapter extends FragmentPagerAdapter {
 	public Fragment getItem(int i) {
 		return list.get(i);
 	}
+
 }

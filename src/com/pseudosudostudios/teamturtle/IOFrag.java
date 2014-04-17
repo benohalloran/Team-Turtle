@@ -10,6 +10,8 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -28,6 +30,12 @@ public class IOFrag extends Fragment implements View.OnClickListener {
 	private Spinner course;
 	private ExpandableListView list;
 	private ExpandableListAdapter adapter;
+
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setHasOptionsMenu(true);
+	}
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -49,10 +57,17 @@ public class IOFrag extends Fragment implements View.OnClickListener {
 	}
 
 	@Override
+	public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+		if (menu == null)
+			inflater.inflate(R.menu.menu, menu);
+		menu.removeItem(R.id.menu_add);
+	}
+
+	@Override
 	public void onClick(View v) {
 		switch (v.getId()) {
 		case R.id.new_due:
-			showViewDialogue();
+			showDueDialogue();
 			break;
 		case R.id.new_add:
 			addData();
@@ -87,7 +102,7 @@ public class IOFrag extends Fragment implements View.OnClickListener {
 		Log.d("tried to add new task", t.toString());
 	}
 
-	private void showViewDialogue() {
+	private void showDueDialogue() {
 		final CaldroidFragment calfrag = new CaldroidFragment();
 		Bundle args = new Bundle();
 		Calendar cal = Calendar.getInstance();
@@ -97,14 +112,13 @@ public class IOFrag extends Fragment implements View.OnClickListener {
 		args.putBoolean(CaldroidFragment.SIX_WEEKS_IN_CALENDAR, true);
 		args.putString(CaldroidFragment.DIALOG_TITLE, "When's it due?");
 		calfrag.setArguments(args);
-		final Date data = new Date(); // TODO trash?
+		final Date data = new Date();
 		final SimpleDateFormat formatter = new SimpleDateFormat("MMM dd yy");
 		calfrag.setCaldroidListener(new CaldroidListener() {
 			@Override
 			public void onSelectDate(Date date, View view) {
 				data.setTime(date.getTime());
 				String s = formatter.format(date);
-				;
 				Log.d("Calendar", s);
 				due.setText(s);
 				calfrag.dismiss();

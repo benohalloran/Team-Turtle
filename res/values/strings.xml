@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <string name="app_name">Team Turtle</string>
-    <string name="title_activity_main_screen">Team Turtle</string>
+    <string name="app_name">deStress</string>
+    <string name="app_tagline">Why distress when you can deStress?!</string>
     <string name="title_activity_time_chunk">What to do?</string>
     <string name="title_activity_bracelet_read">Today\'s Stress</string>
     <string name="graph_desc">Today\'s Stress</string>
@@ -13,22 +13,16 @@
 
     <string name="toast_empty_name">You need to have a name for the assignment!</string>
     <string name="notification_text">You have been working hard. Go take a brake!</string>
-    
     <string name="menu_stress_str">Stress overview</string>
-     <string name="menu_add_str">Add Task</string>
+    <string name="menu_add_str">Add Task</string>
 
-    <string-array name="courses">
+    <string-array name="default_courses">
         <item>CSC 211</item>
         <item>CSC 252</item>
         <item>MTH 162</item>
         <item>WRT 105</item>
     </string-array>
-
-    <string name="assignment">Assignment</string>
-    <string name="add">Add</string>
-    <string name="due">Due</string>
-    <string name="notes">Notes</string>
-
+    
     <!-- This is to have more items in the 'time chunk' screen -->
     <string-array name="default_tasks_name">
         <item>Read Ch 5</item>
@@ -36,5 +30,18 @@
         <item>Webwork 8</item>
         <item>Read articles</item>
     </string-array>
+    
+    <!-- This is to have more items in the 'time chunk' screen -->
+    <string-array name="default_descriptions">
+        <item>Emotional design. Quiz next class!</item>
+        <item>Program optimization</item>
+        <item>Integration by parts and infinate series</item>
+        <item>Example final research papers</item>
+    </string-array>
+
+    <string name="assignment">Assignment</string>
+    <string name="add">Add</string>
+    <string name="due">Due</string>
+    <string name="notes">Notes</string>
 
 </resources>

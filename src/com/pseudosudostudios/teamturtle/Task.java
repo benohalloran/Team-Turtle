@@ -22,13 +22,10 @@ public class Task {
 		this(null, null, null, null);
 	}
 
-	public Task(int i) {
-		this("name: " + i, "notes: " + i, "course: " + i, "due: " + i);
-	}
-
 	@Override
 	public String toString() {
 		return "Task [name=" + name + ", notes=" + notes + ", course=" + course
 				+ ", due=" + due + "]";
 	}
+
 }

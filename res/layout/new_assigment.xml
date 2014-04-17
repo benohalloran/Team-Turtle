@@ -53,7 +53,7 @@
         android:layout_alignTop="@+id/new_due"
         android:layout_toLeftOf="@+id/new_add"
         android:layout_toRightOf="@+id/new_due"
-        android:entries="@array/courses"
+        android:entries="@array/default_courses"
         android:gravity="top" />
 
 </RelativeLayout>

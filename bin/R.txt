@@ -4,7 +4,8 @@ int anim abc_slide_in_bottom 0x7f040002
 int anim abc_slide_in_top 0x7f040003
 int anim abc_slide_out_bottom 0x7f040004
 int anim abc_slide_out_top 0x7f040005
-int array courses 0x7f0c0001
+int array default_courses 0x7f0c0001
+int array default_descriptions 0x7f0c0003
 int array default_tasks_name 0x7f0c0002
 int array tips 0x7f0c0000
 int attr actionBarDivider 0x7f01000b
@@ -404,6 +405,7 @@ int string abc_shareactionprovider_share_with 0x7f06000d
 int string abc_shareactionprovider_share_with_application 0x7f06000c
 int string add 0x7f060017
 int string app_name 0x7f060000
+int string app_tagline 0x7f06000e
 int string assignment 0x7f060016
 int string due 0x7f060018
 int string graph_desc 0x7f060011
@@ -412,7 +414,6 @@ int string menu_stress_str 0x7f060014
 int string notes 0x7f060019
 int string notification_text 0x7f060013
 int string title_activity_bracelet_read 0x7f060010
-int string title_activity_main_screen 0x7f06000e
 int string title_activity_time_chunk 0x7f06000f
 int string toast_empty_name 0x7f060012
 int style AppBaseTheme 0x7f070000

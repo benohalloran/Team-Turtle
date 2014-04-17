@@ -15,15 +15,23 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 	private Context context;
 	private List<Task> tasks; // header titles
 
-	// child data in format of header title, child title
-
 	public ExpandableListAdapter(Context c, List<Task> tasks) {
 		this.context = c;
 		this.tasks = tasks;
+		String nowstr = "Apr %d 14";
+		String[] courses = c.getResources().getStringArray(
+				R.array.default_courses);
+		String[] titles = c.getResources().getStringArray(
+				R.array.default_tasks_name);
+		String[] descr = c.getResources().getStringArray(
+				R.array.default_descriptions);
+		for (int i = 0; this.tasks.size() < 4; i++) {
+			this.tasks.add(new Task(titles[i], descr[i], courses[i], String
+					.format(nowstr, (18 + i))));
+		}
 	}
 
 	public void addTask(Task task) {
-		// TODO Auto-generated method stub
 		tasks.add(task);
 		notifyDataSetChanged();
 	}
