@@ -1,19 +1,24 @@
 package com.pseudosudostudios.teamturtle;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import android.content.Context;
-import android.graphics.Typeface;
+import android.graphics.Paint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
+import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.TextView;
 
 public class ExpandableListAdapter extends BaseExpandableListAdapter {
 
 	private Context context;
 	private List<Task> tasks; // header titles
+	private List<TextView> headers;
 
 	public ExpandableListAdapter(Context c, List<Task> tasks) {
 		this.context = c;
@@ -29,6 +34,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 			this.tasks.add(new Task(titles[i], descr[i], courses[i], String
 					.format(nowstr, (18 + i))));
 		}
+		headers = new ArrayList<TextView>();
 	}
 
 	public void addTask(Task task) {
@@ -51,31 +57,23 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 			boolean isLastChild, View convertView, ViewGroup parent) {
 
 		final Task task = getChild(groupPosition, childPosition);
-		System.out.println(task == null);
 		if (convertView == null) {
 			LayoutInflater infalInflater = (LayoutInflater) this.context
 					.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 			convertView = infalInflater.inflate(R.layout.assignment_details,
 					null);
 		}
-		TextView name, notes, due, course;
-
-		name = (TextView) convertView.findViewById(R.id.assig_details_name);
-		name.setText(task.name);
-
-		if (task.notes != null) {
-			notes = (TextView) convertView
-					.findViewById(R.id.assig_details_notes);
-			notes.setText(task.notes);
-		}
-
-		if (task.due != null) {
-			due = (TextView) convertView.findViewById(R.id.assig_details_due);
-			due.setText(task.due);
-		}
-
+		final TextView notes, due, course;
+		notes = (TextView) convertView.findViewById(R.id.assig_details_notes);
+		due = (TextView) convertView.findViewById(R.id.assig_details_due);
 		course = (TextView) convertView.findViewById(R.id.assig_details_course);
-		course.setText(task.course);
+
+		if (task.notes != null)
+			notes.setText(task.notes);
+		if (task.due != null)
+			due.setText(task.due);
+		if (task.course != null)
+			course.setText(task.course);
 
 		return convertView;
 	}
@@ -112,9 +110,9 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 
 		TextView lblListHeader = (TextView) convertView
 				.findViewById(R.id.header_text);
-		lblListHeader.setTypeface(null, Typeface.BOLD);
 		lblListHeader.setText(headerTitle);
 
+		headers.add(lblListHeader);
 		return convertView;
 	}
 
@@ -127,5 +125,4 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 	public boolean isChildSelectable(int groupPosition, int childPosition) {
 		return true;
 	}
-
 }

@@ -2,8 +2,11 @@ package com.pseudosudostudios.teamturtle;
 
 import java.util.Random;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.TextView;
 
 public class BraceletReadActivity extends ActionBarActivity {
@@ -15,8 +18,23 @@ public class BraceletReadActivity extends ActionBarActivity {
 		tipOut.setText(getRandomStressTip());
 	}
 
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		getMenuInflater().inflate(R.menu.menu, menu);
+		menu.removeItem(R.id.menu_stress);
+		return true;
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		Intent launchMainForAdd = new Intent(this, MainScreen.class);
+		launchMainForAdd.putExtra(MainScreen.ADD_KEY, true);
+		startActivity(launchMainForAdd);
+		return true;
+	}
+
 	private String getRandomStressTip() {
-		String[] allTips = getResources().getStringArray(R.array.tips); //TODO add more tips, currently only have one.
+		String[] allTips = getResources().getStringArray(R.array.tips);
 		Random rand = new Random();
 		return allTips[rand.nextInt(allTips.length)];
 	}

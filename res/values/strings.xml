@@ -6,6 +6,8 @@
     <string name="title_activity_time_chunk">What to do?</string>
     <string name="title_activity_bracelet_read">Today\'s Stress</string>
     <string name="graph_desc">Today\'s Stress</string>
+    <string name="title_work">Work Now</string>
+    <string name="title_inout">Assignmemts</string>
 
     <string-array name="tips">
         <item>Remember to take brakes and not to work for too long in one stretch. Get up and take a little walk every hour or so.</item>
@@ -22,7 +24,7 @@
         <item>MTH 162</item>
         <item>WRT 105</item>
     </string-array>
-    
+
     <!-- This is to have more items in the 'time chunk' screen -->
     <string-array name="default_tasks_name">
         <item>Read Ch 5</item>
@@ -30,7 +32,7 @@
         <item>Webwork 8</item>
         <item>Read articles</item>
     </string-array>
-    
+
     <!-- This is to have more items in the 'time chunk' screen -->
     <string-array name="default_descriptions">
         <item>Emotional design. Quiz next class!</item>

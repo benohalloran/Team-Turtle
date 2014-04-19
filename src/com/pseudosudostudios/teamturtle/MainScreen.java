@@ -14,10 +14,11 @@ import android.view.MenuItem;
 public class MainScreen extends ActionBarActivity {
 	public static final int TimeFrag = 0;
 	public static final int IOFrag = 1;
+	
+	public static final String ADD_KEY = "add";
 	private FragmentAdapter adapt;
 	private List<Fragment> frags;
 	private ViewPager pager;
-
 
 	// hide keyboard when how much time screen pops up
 	@Override
@@ -30,6 +31,12 @@ public class MainScreen extends ActionBarActivity {
 		frags.add(new IOFrag());
 		adapt = new FragmentAdapter(getSupportFragmentManager(), frags);
 		pager.setAdapter(adapt);
+		Bundle extras;
+		if ((extras = getIntent().getExtras()) != null) {
+			if (extras.containsKey(ADD_KEY)) {
+				showFragment(IOFrag);
+			}
+		}
 	}
 
 	@Override

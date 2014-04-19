@@ -23,3 +23,6 @@ proguard-project.txt
 
 # Gradle files
 /.gradle
+
+#Eclipse Settings
+/.settings
