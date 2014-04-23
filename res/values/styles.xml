@@ -23,5 +23,8 @@
         <item name="android:textColor">@color/button_txt</item>
         <item name="android:background">@color/button_bg</item>
     </style>
+    <style name = "EditTheme" parent = "AppTheme">
+        <item name = "android:textColorHint">#444444</item>
+    </style>
 
 </resources>

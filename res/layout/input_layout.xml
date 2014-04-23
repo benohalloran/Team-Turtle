@@ -38,6 +38,7 @@
             android:layout_alignParentBottom="true"
             android:gravity="bottom"
             android:numColumns="4" >
+
         </GridView>
     </RelativeLayout>
 

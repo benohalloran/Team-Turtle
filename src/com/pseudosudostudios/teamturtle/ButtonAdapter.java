@@ -1,11 +1,14 @@
 package com.pseudosudostudios.teamturtle;
 
 import android.content.Context;
+import android.view.Gravity;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.GridView;
+import android.widget.TextView;
 
 public class ButtonAdapter extends BaseAdapter {
 	public static final int DELETE = -2;
@@ -44,14 +47,18 @@ public class ButtonAdapter extends BaseAdapter {
 				return buttons[position];
 			b = new Button(context);
 			b.setTextColor(context.getResources().getColor(R.color.button_txt));
+
 			/*
 			 * b.setBackgroundColor(context.getResources().getColor(
-			 * R.color.button_bg)); b.setLayoutParams(new GridView.LayoutParams(
-			 * GridView.LayoutParams.WRAP_CONTENT,
-			 * GridView.LayoutParams.WRAP_CONTENT));
+			 * R.color.button_bg));
 			 */
+		/*	b.setLayoutParams(new GridView.LayoutParams(
+					GridView.LayoutParams.WRAP_CONTENT,
+					GridView.LayoutParams.WRAP_CONTENT));*/
+			b.setHeight(1);
+			b.setGravity(Gravity.CENTER);
 			b.setText(position + 1 + "");
-			b.setTextSize(15);
+			//b.setPadding(0, 100, 0, 100);
 			if (position >= 4)
 				b.setText(position + "");
 			if (position >= 7)

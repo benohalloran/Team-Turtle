@@ -22,6 +22,7 @@
             android:scaleType="centerInside"
             android:src="@drawable/graph" />
     </RelativeLayout>
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -75,7 +76,6 @@
                 android:text="You Were Most Stressed:"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
         </RelativeLayout>
-
     </RelativeLayout>
 
 </LinearLayout>
