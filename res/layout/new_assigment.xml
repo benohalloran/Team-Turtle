@@ -6,6 +6,7 @@
 
     <EditText
         android:id="@+id/new_name"
+        style="@style/AppTheme"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
@@ -13,12 +14,11 @@
         android:layout_alignParentTop="true"
         android:ems="7"
         android:hint="@string/assignment"
-        android:inputType="textCapWords" >
-
-    </EditText>
+        android:inputType="textCapWords" />
 
     <EditText
         android:id="@+id/new_notes"
+        style="@style/AppTheme"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
@@ -35,7 +35,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/new_notes"
-        android:text="@string/due" />
+        android:text="@string/due"
+        android:textColor="@color/button_txt" />
 
     <Button
         android:id="@+id/new_add"
@@ -43,10 +44,12 @@
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_below="@+id/new_notes"
-        android:text="@string/add" />
+        android:text="@string/add"
+        android:textColor="@color/button_txt" />
 
     <Spinner
         android:id="@+id/new_spinner"
+        style="?android:attr/spinnerItemStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/new_due"

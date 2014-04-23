@@ -1,6 +1,6 @@
 package com.pseudosudostudios.teamturtle;
 
-import java.util.LinkedList;
+import java.util.List;
 
 import android.app.NotificationManager;
 import android.content.Context;
@@ -9,7 +9,6 @@ import android.graphics.Paint;
 import android.os.Bundle;
 import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.ActionBarActivity;
-import android.util.TypedValue;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.CheckBox;
@@ -17,21 +16,24 @@ import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.LinearLayout;
 
-public class TimeChunk extends ActionBarActivity implements
+public class TimeChunkActivity extends ActionBarActivity implements
 		OnCheckedChangeListener {
 	private static final int NOTIFICATION_ID = 65498425; // random constant int
+															// for the
+															// notification
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_time_chunk);
 		LinearLayout tasks = (LinearLayout) findViewById(R.id.chunk_linear);
-		LinkedList<Task> taskList = getTasks();
+		List<Task> taskList = getTasks();
 		for (Task t : taskList) {
 			CheckBox box = new CheckBox(this);
 			box.setOnCheckedChangeListener(this);
 			box.setText(t.name + (t.course == null ? "" : " for " + t.course));
 			box.setChecked(false);
+			box.setTextColor(getResources().getColor(R.color.button_txt));
 			box.setTextSize(20);
 			tasks.addView(box);
 		}
@@ -52,9 +54,8 @@ public class TimeChunk extends ActionBarActivity implements
 		return true;
 	}
 
-	private LinkedList<Task> getTasks() {
-		@SuppressWarnings("unchecked")
-		LinkedList<Task> list = (LinkedList<Task>) Task.masterTaskList.clone();
+	private List<Task> getTasks() {
+		List<Task> list = Task.masterTaskList;
 		String[] defaultTasksList = getResources().getStringArray(
 				R.array.default_tasks_name);
 		String[] courses = getResources().getStringArray(
