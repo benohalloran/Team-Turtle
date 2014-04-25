@@ -21,7 +21,6 @@
 
     <EditText
         android:id="@+id/log_in_password"
-        style="@style/EditTheme"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/log_in_net_id"
@@ -33,7 +32,6 @@
 
     <EditText
         android:id="@+id/log_in_net_id"
-        style="@style/EditTheme"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignRight="@+id/log_in_password"

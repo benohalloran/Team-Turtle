@@ -6,7 +6,7 @@
 
     <EditText
         android:id="@+id/new_name"
-        style="@style/EditTheme"
+        style="@style/AppTheme"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
@@ -18,7 +18,7 @@
 
     <EditText
         android:id="@+id/new_notes"
-        style="@style/EditTheme"
+        style="@style/AppTheme"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
@@ -31,7 +31,6 @@
 
     <Button
         android:id="@+id/new_due"
-        style="@style/ButtonTheme"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
@@ -41,7 +40,6 @@
 
     <Button
         android:id="@+id/new_add"
-        style="@style/ButtonTheme"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
