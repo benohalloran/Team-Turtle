@@ -52,7 +52,7 @@ public class TimeInputFrag extends Fragment implements OnClickListener {
 				if (outStrings.size() > 0)
 					outStrings.remove(outStrings.size() - 1);
 			} else if (b.getText().toString().equals("Go")) {
-				startActivity(new Intent(getActivity(), TimeChunkActivity.class));
+				startActivity(new Intent(getActivity(), TimeChunk.class));
 			} else {
 				String s;
 				if (!outStrings.contains((s = b.getText().toString()))

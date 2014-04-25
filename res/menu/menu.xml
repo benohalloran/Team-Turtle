@@ -2,18 +2,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.pseudosudostudios.teamturtle.MainScreen" >
-
-    <item
+     <item
         android:id="@+id/menu_add"
-        android:icon="@drawable/plus"
         android:orderInCategory="102"
         android:title="@string/menu_add_str"
+        android:icon="@drawable/plus"
         app:showAsAction="ifRoom"/>
-    <item
+     <item
         android:id="@+id/menu_stress"
-        android:icon="@drawable/bracelet"
         android:orderInCategory="103"
         android:title="@string/menu_stress_str"
+        android:icon="@drawable/bracelet"
         app:showAsAction="ifRoom"/>
 
 </menu>

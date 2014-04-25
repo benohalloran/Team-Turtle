@@ -1,23 +1,29 @@
 package com.pseudosudostudios.teamturtle;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import android.content.Context;
+import android.graphics.Paint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
+import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.TextView;
 
 public class ExpandableListAdapter extends BaseExpandableListAdapter {
 
 	private Context context;
 	private List<Task> tasks; // header titles
+	private List<TextView> headers;
 
 	public ExpandableListAdapter(Context c, List<Task> tasks) {
 		this.context = c;
 		this.tasks = tasks;
-		String nowstr = "Apr %d '14";
+		String nowstr = "Apr %d 14";
 		String[] courses = c.getResources().getStringArray(
 				R.array.default_courses);
 		String[] titles = c.getResources().getStringArray(
@@ -26,8 +32,9 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 				R.array.default_descriptions);
 		for (int i = 0; this.tasks.size() < 4; i++) {
 			this.tasks.add(new Task(titles[i], descr[i], courses[i], String
-					.format(nowstr, ((18 + i) % 30) + 1)));
+					.format(nowstr, (18 + i))));
 		}
+		headers = new ArrayList<TextView>();
 	}
 
 	public void addTask(Task task) {
@@ -104,6 +111,8 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 		TextView lblListHeader = (TextView) convertView
 				.findViewById(R.id.header_text);
 		lblListHeader.setText(headerTitle);
+
+		headers.add(lblListHeader);
 		return convertView;
 	}
 

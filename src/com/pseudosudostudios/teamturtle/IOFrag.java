@@ -48,14 +48,8 @@ public class IOFrag extends Fragment implements View.OnClickListener {
 		notes = (EditText) root.findViewById(R.id.new_notes);
 		course = (Spinner) root.findViewById(R.id.new_spinner);
 
-		/*
-		 * course.setAdapter(new ArrayAdapter<String>(getActivity(),
-		 * android.R.layout.simple_spinner_item, getResources()
-		 * .getStringArray(R.array.default_courses)));
-		 */
 		due.setOnClickListener(this);
 		add.setOnClickListener(this);
-
 		tasks = new ArrayList<Task>();
 		adapter = new ExpandableListAdapter(getActivity(), tasks);
 		list.setAdapter(adapter);

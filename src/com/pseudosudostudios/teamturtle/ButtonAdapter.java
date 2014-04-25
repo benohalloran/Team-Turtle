@@ -43,15 +43,7 @@ public class ButtonAdapter extends BaseAdapter {
 			if (buttons[position] != null)
 				return buttons[position];
 			b = new Button(context);
-			b.setTextColor(context.getResources().getColor(R.color.button_txt));
-			/*
-			 * b.setBackgroundColor(context.getResources().getColor(
-			 * R.color.button_bg)); b.setLayoutParams(new GridView.LayoutParams(
-			 * GridView.LayoutParams.WRAP_CONTENT,
-			 * GridView.LayoutParams.WRAP_CONTENT));
-			 */
 			b.setText(position + 1 + "");
-			b.setTextSize(15);
 			if (position >= 4)
 				b.setText(position + "");
 			if (position >= 7)
@@ -64,7 +56,7 @@ public class ButtonAdapter extends BaseAdapter {
 				b.setText("Min");
 				break;
 			case 11:
-				b.setText("Back");
+				b.setText("Del");
 				break;
 			case 12:
 				b.setText("/");
