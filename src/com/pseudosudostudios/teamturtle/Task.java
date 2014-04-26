@@ -1,9 +1,9 @@
 package com.pseudosudostudios.teamturtle;
 
-import java.util.LinkedList;
+import java.util.List;
 
 public class Task {
-	public static final LinkedList<Task> masterTaskList = new LinkedList<Task>();
+	public static final List<Task> masterTaskList = new UniqueLinkedList();
 	String name, notes, course, due;
 
 	public Task(String name, String notes, String course, String due) {
@@ -15,7 +15,7 @@ public class Task {
 			this.course = course.trim();
 		if (due != null)
 			this.due = due.trim();
-		masterTaskList.add(this);
+		masterTaskList.add(0, this); //Append at the front of the list, 
 	}
 
 	public Task() {

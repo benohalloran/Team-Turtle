@@ -4,25 +4,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 import android.content.Context;
-import android.graphics.Paint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
-import android.widget.CheckBox;
-import android.widget.CompoundButton;
-import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.TextView;
 
 public class ExpandableListAdapter extends BaseExpandableListAdapter {
 
 	private Context context;
-	private List<Task> tasks; // header titles
 	private List<TextView> headers;
 
-	public ExpandableListAdapter(Context c, List<Task> tasks) {
+	public ExpandableListAdapter(Context c) {
 		this.context = c;
-		this.tasks = tasks;
 		String nowstr = "Apr %d 14";
 		String[] courses = c.getResources().getStringArray(
 				R.array.default_courses);
@@ -30,21 +24,21 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 				R.array.default_tasks_name);
 		String[] descr = c.getResources().getStringArray(
 				R.array.default_descriptions);
-		for (int i = 0; this.tasks.size() < 4; i++) {
-			this.tasks.add(new Task(titles[i], descr[i], courses[i], String
-					.format(nowstr, (18 + i))));
+		for (int i = 0; Task.masterTaskList.size() < 4; i++) {
+			Task.masterTaskList.add(new Task(titles[i], descr[i], courses[i],
+					String.format(nowstr, (18 + i))));
 		}
 		headers = new ArrayList<TextView>();
 	}
 
 	public void addTask(Task task) {
-		tasks.add(task);
+		Task.masterTaskList.add(task);
 		notifyDataSetChanged();
 	}
 
 	@Override
 	public Task getChild(int groupPosition, int childPosititon) {
-		return tasks.get(groupPosition);
+		return Task.masterTaskList.get(groupPosition);
 	}
 
 	@Override
@@ -85,12 +79,12 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 
 	@Override
 	public Object getGroup(int groupPosition) {
-		return this.tasks.get(groupPosition).name;
+		return Task.masterTaskList.get(groupPosition).name;
 	}
 
 	@Override
 	public int getGroupCount() {
-		return this.tasks.size();
+		return Task.masterTaskList.size();
 	}
 
 	@Override

@@ -1,10 +1,8 @@
 package com.pseudosudostudios.teamturtle;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.List;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -24,7 +22,6 @@ import com.roomorama.caldroid.CaldroidFragment;
 import com.roomorama.caldroid.CaldroidListener;
 
 public class IOFrag extends Fragment implements View.OnClickListener {
-	List<Task> tasks;
 	private Button due, add;
 	private EditText name, notes;
 	private Spinner course;
@@ -50,8 +47,7 @@ public class IOFrag extends Fragment implements View.OnClickListener {
 
 		due.setOnClickListener(this);
 		add.setOnClickListener(this);
-		tasks = new ArrayList<Task>();
-		adapter = new ExpandableListAdapter(getActivity(), tasks);
+		adapter = new ExpandableListAdapter(getActivity());
 		list.setAdapter(adapter);
 		return root;
 	}
@@ -99,6 +95,8 @@ public class IOFrag extends Fragment implements View.OnClickListener {
 		name.setText("");
 		notes.setText("");
 		due.setText("Due");
+		Toast.makeText(getActivity(), "Added task " + strname,
+				Toast.LENGTH_LONG).show();
 		Log.d("tried to add new task", t.toString());
 	}
 
