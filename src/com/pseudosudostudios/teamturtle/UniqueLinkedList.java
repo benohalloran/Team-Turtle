@@ -17,7 +17,7 @@ public class UniqueLinkedList extends LinkedList<Task> {
 			super.add(location, object);
 		else {
 			Task t = super.remove(indexOf(object));
-			add(0, t);
+			add(0, t); // This is why I'm using a linked List
 		}
 	}
 
