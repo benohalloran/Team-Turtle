@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.graphics.Paint;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.CheckBox;
@@ -30,6 +29,12 @@ public class TimeChunk extends ActionBarActivity implements
 			box.setChecked(false);
 			box.setTextSize(20);
 			box.setId(t.hashCode());
+			if (t.done)
+				box.setPaintFlags(box.getPaintFlags()
+						| Paint.STRIKE_THRU_TEXT_FLAG);
+			else
+				box.setPaintFlags(box.getPaintFlags()
+						& ~Paint.STRIKE_THRU_TEXT_FLAG);
 			layout.addView(box);
 		}
 	}
@@ -57,9 +62,9 @@ public class TimeChunk extends ActionBarActivity implements
 		} else
 			buttonView.setPaintFlags(buttonView.getPaintFlags()
 					& ~Paint.STRIKE_THRU_TEXT_FLAG);
-		
 		Task clicked = Task.findTaskByHash(buttonView.getId());
-		clicked.setDone(isChecked);
+		if (clicked != null)
+			clicked.setDone(isChecked);
 	}
 
 }
