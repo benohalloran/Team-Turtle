@@ -14,7 +14,6 @@
         android:ems="7"
         android:hint="@string/assignment"
         android:inputType="textCapWords" >
-
     </EditText>
 
     <EditText

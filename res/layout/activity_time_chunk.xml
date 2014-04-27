@@ -22,7 +22,6 @@
         android:layout_below="@+id/chunk_header"
         android:layout_margin="0dp"
         android:orientation="vertical" >
-
     </LinearLayout>
 
 </RelativeLayout>

@@ -22,11 +22,11 @@ public class LogIn extends ActionBarActivity {
 				startActivity(new Intent(LogIn.this, MainScreen.class));
 			}
 		});
+		new BackgroundTaskIO().execute(getApplication(), BackgroundTaskIO.READ);
 	}
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		return false;
 	}
-
 }

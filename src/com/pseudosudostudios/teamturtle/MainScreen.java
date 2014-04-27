@@ -14,7 +14,7 @@ import android.view.MenuItem;
 public class MainScreen extends ActionBarActivity {
 	public static final int TimeFrag = 0;
 	public static final int IOFrag = 1;
-	
+
 	public static final String ADD_KEY = "add";
 	private FragmentAdapter adapt;
 	private List<Fragment> frags;

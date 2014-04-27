@@ -10,6 +10,7 @@ import android.view.MenuItem;
 import android.widget.TextView;
 
 public class BraceletReadActivity extends ActionBarActivity {
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);

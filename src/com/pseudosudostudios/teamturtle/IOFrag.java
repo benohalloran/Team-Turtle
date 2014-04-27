@@ -80,17 +80,9 @@ public class IOFrag extends Fragment implements View.OnClickListener {
 					Toast.LENGTH_SHORT).show();
 			return;
 		}
-		Task t = new Task();
-		t.name = strname;
-		t.notes = notes.getText().toString();
-		t.due = due.getText().toString();
-		if (t.due == getString(R.string.due))
-			t.due = null;
-		Object c;
-		if ((c = course.getSelectedItem()) != null)
-			t.course = c.toString();
-		else
-			t.course = "";
+		Task t = new Task(strname, notes.getText().toString(),
+				course.getSelectedItem() == null ? "" : course
+						.getSelectedItem().toString(), due.getText().toString());
 		adapter.addTask(t);
 		name.setText("");
 		notes.setText("");
