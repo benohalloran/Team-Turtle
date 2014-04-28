@@ -14,7 +14,7 @@
     </string-array>
 
     <string name="toast_empty_name">You need to have a name for the assignment!</string>
-    <string name="notification_text">You have been working hard. Go take a brake!</string>
+    <string name="notification_text">You have been working hard. Go take a break!</string>
     <string name="menu_stress_str">Stress overview</string>
     <string name="menu_add_str">Add Task</string>
 
