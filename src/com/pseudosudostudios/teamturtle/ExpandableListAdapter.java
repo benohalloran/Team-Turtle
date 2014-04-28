@@ -1,9 +1,8 @@
 package com.pseudosudostudios.teamturtle;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import android.content.Context;
+import android.graphics.Paint;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,7 +12,6 @@ import android.widget.TextView;
 public class ExpandableListAdapter extends BaseExpandableListAdapter {
 
 	private Context context;
-	private List<TextView> headers;
 
 	public ExpandableListAdapter(Context c) {
 		this.context = c;
@@ -28,7 +26,6 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 			Task.masterTaskList.add(new Task(titles[i], descr[i], courses[i],
 					String.format(nowstr, (18 + i))));
 		}
-		headers = new ArrayList<TextView>();
 	}
 
 	public void addTask(Task task) {
@@ -78,8 +75,8 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 	}
 
 	@Override
-	public Object getGroup(int groupPosition) {
-		return Task.masterTaskList.get(groupPosition).name;
+	public Task getGroup(int groupPosition) {
+		return Task.masterTaskList.get(groupPosition);
 	}
 
 	@Override
@@ -95,7 +92,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 	@Override
 	public View getGroupView(int groupPosition, boolean isExpanded,
 			View convertView, ViewGroup parent) {
-		String headerTitle = (String) getGroup(groupPosition);
+		Task data = getGroup(groupPosition);
 		if (convertView == null) {
 			LayoutInflater infalInflater = (LayoutInflater) this.context
 					.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -104,9 +101,14 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 
 		TextView lblListHeader = (TextView) convertView
 				.findViewById(R.id.header_text);
-		lblListHeader.setText(headerTitle);
+		lblListHeader.setText(data.name);
 
-		headers.add(lblListHeader);
+		if (data.done)
+			lblListHeader.setPaintFlags(lblListHeader.getPaintFlags()
+					| Paint.STRIKE_THRU_TEXT_FLAG);
+		else
+			lblListHeader.setPaintFlags(lblListHeader.getPaintFlags()
+					& ~Paint.STRIKE_THRU_TEXT_FLAG);
 		return convertView;
 	}
 
@@ -115,8 +117,9 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 		return false;
 	}
 
+
 	@Override
 	public boolean isChildSelectable(int groupPosition, int childPosition) {
-		return true;
+		return false;
 	}
 }

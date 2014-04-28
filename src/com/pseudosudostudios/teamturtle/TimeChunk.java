@@ -26,7 +26,7 @@ public class TimeChunk extends ActionBarActivity implements
 			CheckBox box = new CheckBox(this);
 			box.setOnCheckedChangeListener(this);
 			box.setText(t.name + (t.course == null ? "" : " for " + t.course));
-			box.setChecked(false);
+			box.setChecked(t.done);
 			box.setTextSize(20);
 			box.setId(t.hashCode());
 			if (t.done)

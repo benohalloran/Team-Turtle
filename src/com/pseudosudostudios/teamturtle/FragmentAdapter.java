@@ -7,8 +7,6 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
 public class FragmentAdapter extends FragmentPagerAdapter {
-	public static final int TIME_FRAG = 0;
-	public static final int IO_FRAG = 1;
 	private List<Fragment> list;
 
 	public FragmentAdapter(FragmentManager fm, List<Fragment> frags) {
@@ -29,10 +27,12 @@ public class FragmentAdapter extends FragmentPagerAdapter {
 	@Override
 	public CharSequence getPageTitle(int position) {
 		switch (position) {
-		case TIME_FRAG:
+		case MainScreen.TimeFrag:
 			return "Time";
-		case IO_FRAG:
+		case MainScreen.IOFrag:
 			return "Tasks";
+		case MainScreen.BRACELET:
+			return "Today's Stress";
 		default:
 			return super.getPageTitle(position);
 		}

@@ -4,14 +4,23 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.DisplayMetrics;
 import android.util.Log;
+import android.util.TypedValue;
+import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
+import android.view.View.OnFocusChangeListener;
+import android.view.View.OnLayoutChangeListener;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ExpandableListView;
@@ -38,7 +47,7 @@ public class IOFrag extends Fragment implements View.OnClickListener {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		View root = inflater.inflate(R.layout.frag_io, null);
-		list = (ExpandableListView) root.findViewById(R.id.assignments_lists);
+		list = (RightExpandableListView) root.findViewById(R.id.assignments_lists);
 		due = (Button) root.findViewById(R.id.new_due);
 		add = (Button) root.findViewById(R.id.new_add);
 		name = (EditText) root.findViewById(R.id.new_name);
@@ -49,7 +58,61 @@ public class IOFrag extends Fragment implements View.OnClickListener {
 		add.setOnClickListener(this);
 		adapter = new ExpandableListAdapter(getActivity());
 		list.setAdapter(adapter);
+
+		/*list.setOnItemLongClickListener(new OnItemLongClickListener() {
+
+			@Override
+			public boolean onItemLongClick(AdapterView<?> parent, View view,
+					int position, long id) {
+				try {
+					showTaskDialogue(position);
+				} catch (IndexOutOfBoundsException e) {
+					e.printStackTrace();
+				}
+				Log.d("LONG PRESS", Task.masterTaskList.get(position)
+						.toString());
+				return true;
+			}
+		});
+		list.setDivider(getActivity().getResources().getDrawable(
+				android.R.drawable.list_selector_background));
+*/
+		// move the dropdown to the right side
+		/*
+		 * DisplayMetrics metrics = new DisplayMetrics();
+		 * getActivity().getWindowManager().getDefaultDisplay()
+		 * .getMetrics(metrics); int width = metrics.widthPixels; final float
+		 * dips = TypedValue.applyDimension( TypedValue.COMPLEX_UNIT_DIP, width,
+		 * metrics); list.addOnLayoutChangeListener(new OnLayoutChangeListener()
+		 * {
+		 * 
+		 * @Override public void onLayoutChange(View v, int left, int top, int
+		 * right, int bottom, int oldLeft, int oldTop, int oldRight, int
+		 * oldBottom) { list.setIndicatorBounds((int) dips, (int) dips); } });
+		 * root.setOnFocusChangeListener(new OnFocusChangeListener() {
+		 * 
+		 * @Override public void onFocusChange(View v, boolean hasFocus) { if
+		 * (list.equals(v)) { if (android.os.Build.VERSION.SDK_INT <
+		 * android.os.Build.VERSION_CODES.JELLY_BEAN_MR2)
+		 * list.setIndicatorBounds((int) dips, (int) dips); else
+		 * list.setIndicatorBoundsRelative((int) dips, (int) dips); } } });
+		 */
 		return root;
+	}
+
+	protected void showTaskDialogue(int position)
+			throws IndexOutOfBoundsException {
+		final Task sel = Task.masterTaskList.get(position);
+		final MyDialogueListener listen = new MyDialogueListener(sel);
+		AlertDialog.Builder build = new AlertDialog.Builder(getActivity())
+				.setTitle(sel.name)
+				.setMessage("What would you like to do?")
+				.setPositiveButton("Delete", listen)
+				.setNegativeButton(
+						!sel.done ? "Mark Complete" : "Mark Incomplete", listen)
+				.setNeutralButton("Cancel", listen).setCancelable(true)
+				.setNeutralButton("Cancel", listen);
+		build.show();
 	}
 
 	@Override
@@ -59,7 +122,6 @@ public class IOFrag extends Fragment implements View.OnClickListener {
 		menu.removeItem(R.id.menu_add);
 	}
 
-	@Override
 	public void onClick(View v) {
 		switch (v.getId()) {
 		case R.id.new_due:
@@ -118,4 +180,35 @@ public class IOFrag extends Fragment implements View.OnClickListener {
 		calfrag.show(getFragmentManager(), "calfrag");
 	}
 
+	class MyDialogueListener implements DialogInterface.OnClickListener {
+		final Task t;
+
+		public MyDialogueListener(Task t) {
+			this.t = t;
+		}
+
+		@Override
+		public void onClick(DialogInterface dialog, int which) {
+			switch (which) {
+			case DialogInterface.BUTTON_NEGATIVE:
+				t.done = !t.done;
+				break;
+			case DialogInterface.BUTTON_POSITIVE:
+				Log.d("Remove sucessful", "" + Task.masterTaskList.remove(t));
+				break;
+			case DialogInterface.BUTTON_NEUTRAL:
+				// do nothing
+				return;
+			default:
+				Log.w("Unknown Type", "" + which);
+				return;
+			}
+			notifyDataChange();
+		}
+	}
+
+	public void notifyDataChange() {
+		adapter.notifyDataSetChanged();
+		adapter.notifyDataSetInvalidated();
+	}
 }
