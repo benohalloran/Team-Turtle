@@ -26,4 +26,15 @@ public class FragmentAdapter extends FragmentPagerAdapter {
 		return list.get(i);
 	}
 
+	@Override
+	public CharSequence getPageTitle(int position) {
+		switch (position) {
+		case TIME_FRAG:
+			return "Time";
+		case IO_FRAG:
+			return "Tasks";
+		default:
+			return super.getPageTitle(position);
+		}
+	}
 }
