@@ -48,7 +48,6 @@ public class TimeChunk extends ActionBarActivity implements
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		getMenuInflater().inflate(R.menu.menu, menu);
-		menu.removeItem(R.id.menu_stress);
 		return true;
 	}
 
@@ -83,6 +82,7 @@ public class TimeChunk extends ActionBarActivity implements
 			clicked.setDone(isChecked);
 	}
 
+	@Override
 	public void onClick(View v) {
 		switch (v.getId()) {
 		case R.id.new_due:

@@ -6,8 +6,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
@@ -22,7 +20,6 @@ public class TimeInputFrag extends Fragment implements OnClickListener {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setHasOptionsMenu(true);
 	}
 
 	@Override
@@ -36,12 +33,6 @@ public class TimeInputFrag extends Fragment implements OnClickListener {
 		grid.setAdapter(new ButtonAdapter(this));
 		grid.invalidate();
 		return root;
-	}
-
-	@Override
-	public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-		if (menu == null)
-			inflater.inflate(R.menu.menu, menu);
 	}
 
 	@Override

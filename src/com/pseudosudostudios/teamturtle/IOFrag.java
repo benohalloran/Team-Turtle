@@ -10,10 +10,10 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ExpandableListView;
@@ -33,7 +33,6 @@ public class IOFrag extends Fragment implements View.OnClickListener {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setHasOptionsMenu(true);
 	}
 
 	@Override
@@ -52,6 +51,21 @@ public class IOFrag extends Fragment implements View.OnClickListener {
 		add.setOnClickListener(this);
 		adapter = new ExpandableListAdapter(getActivity());
 		list.setAdapter(adapter);
+		list.setOnItemLongClickListener(new OnItemLongClickListener() {
+			@Override
+			public boolean onItemLongClick(AdapterView<?> parent, View view,
+					int position, long id) {
+				try {
+					showTaskDialogue(position);
+				} catch (IndexOutOfBoundsException e) {
+					e.printStackTrace();
+				}
+				Log.d("LONG PRESS", Task.masterTaskList.get(position)
+						.toString());
+				return true;
+			}
+		});
+
 		return root;
 	}
 
@@ -71,12 +85,6 @@ public class IOFrag extends Fragment implements View.OnClickListener {
 	}
 
 	@Override
-	public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-		if (menu == null)
-			inflater.inflate(R.menu.menu, menu);
-		menu.removeItem(R.id.menu_add);
-	}
-
 	public void onClick(View v) {
 		switch (v.getId()) {
 		case R.id.new_due:
