@@ -2,7 +2,6 @@ package com.pseudosudostudios.teamturtle;
 
 import android.content.Context;
 import android.graphics.Paint;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -116,7 +115,6 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 	public boolean hasStableIds() {
 		return false;
 	}
-
 
 	@Override
 	public boolean isChildSelectable(int groupPosition, int childPosition) {

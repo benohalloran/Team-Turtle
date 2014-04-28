@@ -16,7 +16,8 @@
     <string name="toast_empty_name">You need to have a name for the assignment!</string>
     <string name="notification_text">You have been working hard. Go take a break!</string>
     <string name="menu_stress_str">Stress overview</string>
-    <string name="menu_add_str">Add Task</string>
+    <string name="menu_add_str">Add a task</string>
+    
 
     <string-array name="default_courses">
         <item>CSC 211</item>

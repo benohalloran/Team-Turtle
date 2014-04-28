@@ -2,13 +2,11 @@ package com.pseudosudostudios.teamturtle;
 
 import java.util.Random;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -35,14 +33,6 @@ public class BraceletReadActivity extends Fragment {
 		if (menu == null)
 			inflater.inflate(R.menu.menu, menu);
 		menu.removeItem(R.id.menu_stress);
-	}
-
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		Intent launchMainForAdd = new Intent(getActivity(), MainScreen.class);
-		launchMainForAdd.putExtra(MainScreen.ADD_KEY, true);
-		startActivity(launchMainForAdd);
-		return true;
 	}
 
 	private String getRandomStressTip() {
