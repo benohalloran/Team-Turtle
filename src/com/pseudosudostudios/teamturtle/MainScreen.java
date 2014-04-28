@@ -3,7 +3,6 @@ package com.pseudosudostudios.teamturtle;
 import java.util.ArrayList;
 import java.util.List;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
@@ -12,23 +11,25 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 public class MainScreen extends ActionBarActivity {
-	public static final int TimeFrag = 0;
-	public static final int IOFrag = 1;
+	public static final int IOFrag = 0;
+	public static final int TimeFrag = 1;
+	public static final int BRACELET = 2;
 
 	public static final String ADD_KEY = "add";
 	private FragmentAdapter adapt;
 	private List<Fragment> frags;
 	private ViewPager pager;
 
-	// hide keyboard when how much time screen pops up
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main_frags);
+		// title strip
 		pager = (ViewPager) findViewById(R.id.list_pager);
 		frags = new ArrayList<Fragment>(2);
-		frags.add(new TimeInputFrag());
 		frags.add(new IOFrag());
+		frags.add(new TimeInputFrag());
+		frags.add(new BraceletReadActivity());
 		adapt = new FragmentAdapter(getSupportFragmentManager(), frags);
 		pager.setAdapter(adapt);
 		Bundle extras;
@@ -37,19 +38,28 @@ public class MainScreen extends ActionBarActivity {
 				showFragment(IOFrag);
 			}
 		}
+		showFragment(TimeFrag);
 	}
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		getMenuInflater().inflate(R.menu.menu, menu);
-		if (getVisibleFrag() == IOFrag) {
-			menu.removeItem(R.id.menu_add);
-		}
 		return true;
 	}
 
-	private int getVisibleFrag() {
+	public int getVisibleFrag() {
 		return pager.getCurrentItem();
+	}
+
+	@Override
+	protected void onResume() {
+		super.onResume();
+		try {
+			IOFrag io = (com.pseudosudostudios.teamturtle.IOFrag) frags
+					.get(IOFrag);
+			io.notifyDataChange();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Override
@@ -59,7 +69,8 @@ public class MainScreen extends ActionBarActivity {
 		// as you specify a parent activity in AndroidManifest.xml.
 		int id = item.getItemId();
 		if (id == R.id.menu_stress) {
-			startActivity(new Intent(this, BraceletReadActivity.class));
+			showFragment(BRACELET);// startActivity(new Intent(this,
+									// BraceletReadActivity.class));
 			return true;
 		} else if (id == R.id.menu_add) {
 			showFragment(IOFrag);

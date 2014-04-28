@@ -4,31 +4,42 @@ import java.util.Random;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.TextView;
 
-public class BraceletReadActivity extends ActionBarActivity {
+public class BraceletReadActivity extends Fragment {
 
 	@Override
-	protected void onCreate(Bundle savedInstanceState) {
+	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_bracelet_read);
-		TextView tipOut = (TextView) findViewById(R.id.bracelet_tip_out);
-		tipOut.setText(getRandomStressTip());
+		setHasOptionsMenu(true);
 	}
 
 	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		getMenuInflater().inflate(R.menu.menu, menu);
+	public View onCreateView(LayoutInflater inflater, ViewGroup container,
+			Bundle savedInstanceState) {
+		View v = inflater.inflate(R.layout.activity_bracelet_read, null);
+		TextView tipOut = (TextView) v.findViewById(R.id.bracelet_tip_out);
+		tipOut.setText(getRandomStressTip());
+		return v;
+	}
+
+	@Override
+	public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+		if (menu == null)
+			inflater.inflate(R.menu.menu, menu);
 		menu.removeItem(R.id.menu_stress);
-		return true;
 	}
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
-		Intent launchMainForAdd = new Intent(this, MainScreen.class);
+		Intent launchMainForAdd = new Intent(getActivity(), MainScreen.class);
 		launchMainForAdd.putExtra(MainScreen.ADD_KEY, true);
 		startActivity(launchMainForAdd);
 		return true;

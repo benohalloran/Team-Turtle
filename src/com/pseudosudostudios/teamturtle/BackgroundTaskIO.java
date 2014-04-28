@@ -31,42 +31,44 @@ public class BackgroundTaskIO extends AsyncTask<Object, Integer, Void> {
 				e.printStackTrace();
 			}
 			return null;
-		}
-		JSONArray array = new JSONArray();
-		if (mode == WRITE) {
-			for (Task t : Task.masterTaskList)
+		} else {
+			JSONArray array = new JSONArray();
+			if (mode == WRITE) {
+				for (Task t : Task.masterTaskList)
+					try {
+						array.put(t.toJSONObject());
+					} catch (JSONException e1) {
+						e1.printStackTrace();
+					}
+				FileWriter writer;
 				try {
-					array.put(t.toJSONObject());
-				} catch (JSONException e1) {
-					e1.printStackTrace();
+					writer = new FileWriter(out);
+					writer.write(array.toString());
+					writer.close();
+				} catch (IOException e) {
+					e.printStackTrace();
 				}
-			FileWriter writer;
-			try {
-				writer = new FileWriter(out);
-				writer.write(array.toString());
-				writer.close();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		} else if (mode == READ) {
-			try {
-				BufferedReader read = new BufferedReader(new FileReader(out));
-				StringBuffer buf = new StringBuffer();
-				while (read.ready())
-					buf.append(read.readLine());
-				read.close();
-				array = new JSONArray(buf.toString());
-				for (int i = 0; i < array.length(); i++)
-					new Task(array.getJSONObject(i));
-			} catch (FileNotFoundException e) {
-				e.printStackTrace();
-			} catch (IOException e) {
-				e.printStackTrace();
-			} catch (JSONException e) {
-				e.printStackTrace();
-			}
-		} else
-			Log.d(getClass().getCanonicalName(), "Invalid mode: " + mode);
-		return null;
+			} else if (mode == READ) {
+				try {
+					BufferedReader read = new BufferedReader(
+							new FileReader(out));
+					StringBuffer buf = new StringBuffer();
+					while (read.ready())
+						buf.append(read.readLine());
+					read.close();
+					array = new JSONArray(buf.toString());
+					for (int i = 0; i < array.length(); i++)
+						new Task(array.getJSONObject(i));
+				} catch (FileNotFoundException e) {
+					e.printStackTrace();
+				} catch (IOException e) {
+					e.printStackTrace();
+				} catch (JSONException e) {
+					e.printStackTrace();
+				}
+			} else
+				Log.d(getClass().getCanonicalName(), "Invalid mode: " + mode);
+			return null;
+		}
 	}
 }
