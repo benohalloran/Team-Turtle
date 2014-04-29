@@ -1,3 +1,7 @@
+/****************************
+ * deStress
+ * Updated 4/28/14 by Ben O'Halloran
+ ***************************/
 package com.pseudosudostudios.teamturtle;
 
 import java.text.SimpleDateFormat;
@@ -27,6 +31,10 @@ import android.widget.Toast;
 import com.roomorama.caldroid.CaldroidFragment;
 import com.roomorama.caldroid.CaldroidListener;
 
+/**
+ * Displays what the user should work on during the amount of time the entered
+ * on the {@link TimeInputFrag} screen
+ */
 public class TimeChunk extends ActionBarActivity implements
 		OnCheckedChangeListener, OnClickListener {
 	private Button due, add;

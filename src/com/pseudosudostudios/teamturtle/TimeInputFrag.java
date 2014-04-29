@@ -1,3 +1,7 @@
+/****************************
+ * deStress
+ * Updated 4/28/14 by Ben O'Halloran
+ ***************************/
 package com.pseudosudostudios.teamturtle;
 
 import java.util.LinkedList;
@@ -13,6 +17,10 @@ import android.widget.Button;
 import android.widget.GridView;
 import android.widget.TextView;
 
+/**
+ * Prompts the user for how long they are going to work during this use of the
+ * app.
+ */
 public class TimeInputFrag extends Fragment implements OnClickListener {
 	TextView out;
 	LinkedList<String> outStrings;

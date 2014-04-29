@@ -1,3 +1,7 @@
+/****************************
+ * deStress
+ * Updated 4/28/14 by Ben O'Halloran
+ ***************************/
 package com.pseudosudostudios.teamturtle;
 
 import java.util.List;
@@ -6,6 +10,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
+/** Standard fragment adapter for the main page */
 public class FragmentAdapter extends FragmentPagerAdapter {
 	private List<Fragment> list;
 

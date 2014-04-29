@@ -1,3 +1,7 @@
+/****************************
+ * deStress
+ * Updated 4/28/14 by Ben O'Halloran
+ ***************************/
 package com.pseudosudostudios.teamturtle;
 
 import java.util.Random;
@@ -9,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+/** Display's the bracelet readout including a random stress tip */
 public class BraceletReadFrag extends Fragment {
 
 	@Override

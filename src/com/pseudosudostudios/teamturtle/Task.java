@@ -1,3 +1,7 @@
+/****************************
+ * deStress
+ * Updated 4/28/14 by Ben O'Halloran
+ ***************************/
 package com.pseudosudostudios.teamturtle;
 
 import java.util.List;
@@ -5,6 +9,10 @@ import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+/**
+ * Holds data related to the task. Also keeps a master list of all tasks
+ * entered into the application that have not been deleted.
+ */
 public class Task {
 	public static final List<Task> masterTaskList = new UniqueLinkedList();
 	String name, notes, course, due;

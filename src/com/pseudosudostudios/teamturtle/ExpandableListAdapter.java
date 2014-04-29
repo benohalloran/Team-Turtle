@@ -1,3 +1,7 @@
+/****************************
+ * deStress
+ * Updated 4/28/14 by Ben O'Halloran
+ ***************************/
 package com.pseudosudostudios.teamturtle;
 
 import android.content.Context;
@@ -8,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.TextView;
 
+/** Expandable ListView Adapter for the task list */
 public class ExpandableListAdapter extends BaseExpandableListAdapter {
 
 	private Context context;

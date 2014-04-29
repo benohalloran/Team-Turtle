@@ -1,3 +1,7 @@
+/****************************
+ * deStress
+ * Updated 4/28/14 by Ben O'Halloran
+ ***************************/
 package com.pseudosudostudios.teamturtle;
 
 import java.util.ArrayList;
@@ -9,6 +13,10 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 
+/**
+ * Main screen of the application. This houses the time input, bracelet output
+ * and task IO fragments
+ */
 public class MainScreen extends ActionBarActivity {
 	public static final int IOFrag = 0;
 	public static final int TimeFrag = 1;
@@ -22,7 +30,6 @@ public class MainScreen extends ActionBarActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main_frags);
-		// title strip
 		pager = (ViewPager) findViewById(R.id.list_pager);
 		frags = new ArrayList<Fragment>(3);
 		frags.add(new IOFrag());
@@ -43,6 +50,7 @@ public class MainScreen extends ActionBarActivity {
 					.get(IOFrag);
 			io.notifyDataChange();
 		} catch (Exception e) {
+			//Will get a null pointer exception when the app is first made. Just ignore this error
 			e.printStackTrace();
 		}
 	}

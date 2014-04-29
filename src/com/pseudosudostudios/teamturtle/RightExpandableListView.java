@@ -1,3 +1,7 @@
+/****************************
+ * deStress
+ * Updated 4/28/14 by Ben O'Halloran
+ ***************************/
 package com.pseudosudostudios.teamturtle;
 
 import android.content.Context;
@@ -6,6 +10,10 @@ import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.widget.ExpandableListView;
 
+/**
+ * An expandable list view in which the indicator is set to the right hand side
+ * (default is left hand side)
+ */
 public class RightExpandableListView extends ExpandableListView {
 
 	public RightExpandableListView(Context context) {

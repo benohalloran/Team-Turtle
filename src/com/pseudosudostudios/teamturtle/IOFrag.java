@@ -1,3 +1,7 @@
+/****************************
+ * deStress
+ * Updated 4/28/14 by Ben O'Halloran
+ ***************************/
 package com.pseudosudostudios.teamturtle;
 
 import java.text.SimpleDateFormat;
@@ -23,6 +27,7 @@ import android.widget.Toast;
 import com.roomorama.caldroid.CaldroidFragment;
 import com.roomorama.caldroid.CaldroidListener;
 
+/** The task IO screen fragment */
 public class IOFrag extends Fragment implements View.OnClickListener {
 	private Button due, add;
 	private EditText name, notes;

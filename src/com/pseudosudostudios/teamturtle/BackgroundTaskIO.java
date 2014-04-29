@@ -1,3 +1,7 @@
+/****************************
+ * deStress
+ * Updated 4/28/14 by Ben O'Halloran
+ ***************************/
 package com.pseudosudostudios.teamturtle;
 
 import java.io.BufferedReader;
@@ -14,6 +18,7 @@ import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
 
+/** Handles writing the data to disk in a background thread. */
 public class BackgroundTaskIO extends AsyncTask<Object, Integer, Void> {
 	public static final int WRITE = 0;
 	public static final int READ = 1;

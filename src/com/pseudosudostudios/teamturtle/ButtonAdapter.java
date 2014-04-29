@@ -1,3 +1,7 @@
+/****************************
+ * deStress
+ * Updated 4/28/14 by Ben O'Halloran
+ ***************************/
 package com.pseudosudostudios.teamturtle;
 
 import android.content.Context;
@@ -7,6 +11,11 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 
+/**
+ * GridView Adapter that creates the button for the time input screen. Doing it
+ * this way keeps the buttons in a perfect grid dynamically on any Android
+ * device
+ */
 public class ButtonAdapter extends BaseAdapter {
 	public static final int DELETE = -2;
 	private Context context;
