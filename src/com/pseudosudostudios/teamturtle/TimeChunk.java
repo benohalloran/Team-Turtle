@@ -106,7 +106,7 @@ public class TimeChunk extends ActionBarActivity implements
 
 	private void addData() {
 		String strname = name.getText().toString();
-		if (strname.isEmpty()) {
+		if (strname.equals("")) {
 			Toast.makeText(this, R.string.toast_empty_name, Toast.LENGTH_SHORT)
 					.show();
 			return;

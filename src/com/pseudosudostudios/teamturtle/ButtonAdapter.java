@@ -30,7 +30,7 @@ public class ButtonAdapter extends BaseAdapter {
 
 	@Override
 	public int getCount() {
-		return buttons.length;
+		return 16;
 	}
 
 	@Override
@@ -40,7 +40,11 @@ public class ButtonAdapter extends BaseAdapter {
 
 	@Override
 	public long getItemId(int position) {
-		return buttons[position].getId();
+		try {
+			return buttons[position].getId();
+		} catch (NullPointerException e) {
+			return position;
+		}
 	}
 
 	@Override

@@ -105,7 +105,7 @@ public class IOFrag extends Fragment implements View.OnClickListener {
 
 	private void addData() {
 		String strname = name.getText().toString();
-		if (strname.isEmpty()) {
+		if (strname.equals("")) {
 			Toast.makeText(getActivity(), R.string.toast_empty_name,
 					Toast.LENGTH_SHORT).show();
 			return;
