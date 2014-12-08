@@ -4,7 +4,7 @@ deStress
 CSC 211 Team Turtle Repo
 
 Functional (high fidelity) prototype for CSC 211 (DMS 103) at the University of Rochester, Spring 2014. 
-Based on initial designed by Team Turtle (Sarah Kinsley, Molly Nemer, Maria Del Carme Aguilar, Absinthe Wu and [Ben O'Halloran](https://github.com/bohalloran95). Developed by [Ben O'Halloran](https://github.com/bohalloran95).
+Based on initial designed by Team Turtle (Sarah Kinsley, Molly Nemer, Maria Del Carme Aguilar, Absinthe Wu and [Ben O'Halloran](https://github.com/benohalloran). Developed by [Ben O'Halloran](https://github.com/benohalloran).
 
 This code is done as a model of an application to improve a user's health by monitoring their stress and task management. More specifically, the system will provide an automatic list of tasks that you can accomplish right now, with however much time you have to work.
 Note that this is a prototype. As such not all back end features are implemented.
